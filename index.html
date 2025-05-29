@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pinch Of Spice - Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #333;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin: 0 20px;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #f4a261;
+    }
+
+    /* Header */
+    header {
+      background: #f9f9f9;
+      color: #060606;
+      text-align: center;
+      padding:20px 30px
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .header-content img {
+      border-radius: 50%;
+      width: 450px;
+      height: 400px;
+      margin-bottom: 10px;
+    }
+
+    .header-content h1 {
+      color: #f4a261;
+      font-size: 2.8rem;
+      margin: 0;
+    }
+
+    .header-content p {
+      font-size: 1.2rem;
+    }
+
+    /* Banner */
+    .welcome-banner {
+  position: relative;
+  background: url('https://imgs.search.brave.com/HbG90gnq8aTGCu7ALpMeA3HpyqucblDsWkJF35qLYTw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vU3pPY3Ny/b2N6YjhmWUNRUXJR/bUxMcTMzSVpPZFNG/YVVlVlRPS0M5eEFr/ay9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTl0/WldScC9ZUzVwYzNS/dlkydHdhRzkwL2J5/NWpiMjB2YVdRdk1U/SXkvTURBeE56a3dP/Uzl3YUc5MC9ieTkw/YjNBdGRtbGxkeTEw/L1lXSnNaUzFtZFd4/c0xXOW0vTFdadmIy/UXVhbkJuUDNNOS9O/akV5ZURZeE1pWjNQ/VEFtL2F6MHlNQ1pq/UFZWNmVrcHkvU1hS/MFIwcGlha2h2V0Vo/Uy9ja3RPVm1sdFZp/MWpRbnBhL2JVdGtk/bFZ3U21Wc00yYzMv/VG5NOQ') no-repeat center center/cover;
+  text-align: center;
+  color: #f2eded;
+  padding: 120px 20px;
+  z-index: 1;
+}
+
+.welcome-banner::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* black overlay with 40% opacity */
+  z-index: -1;
+  border-radius: inherit; /* optional, if you use border-radius */
+}
+
+
+    .welcome-banner h1 {
+      font-size: 3rem;
+    }
+
+    .welcome-banner p {
+      font-size: 1.4rem;
+    }
+
+    /* Menu Section */
+    .menu-section {
+      padding: 60px 20px;
+      background: #f9f9f9;
+    }
+
+    .menu-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #444;
+      margin-bottom: 40px;
+    }
+
+    .menu-category {
+      margin-bottom: 50px;
+    }
+
+    .menu-category h3 {
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 25px;
+      border-left: 5px solid #f4a261;
+      padding-left: 10px;
+    }
+
+    .menu-item {
+      display: flex;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .menu-item img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .menu-item-content {
+      padding: 15px;
+      flex: 1;
+    }
+
+    .menu-item-content h4 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #333;
+    }
+
+    .price {
+      float: right;
+      color: #f4a261;
+      font-weight: bold;
+    }
+
+    .menu-item-content p {
+      margin-top: 5px;
+      font-size: 0.95rem;
+      color: #666;
+    }
+
+    /* About & Location */
+    .about-section, .location-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about-section h2, .location-section h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .about-section p, .location-section p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    iframe {
+      margin-top: 20px;
+      border-radius: 10px;
+      border: none;
+      width: 90%;
+      max-width: 600px;
+      height: 400px;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .social-link {
+      color: #f4a261;
+      margin: 0 10px;
+      font-size: 1.4rem;
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <ul>
+    <li><a href="#welcome">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#location">Location</a></li>
+  </ul>
+</nav>
+
+<!-- Header -->
+<header>
+  <div class="header-content">
+    <img src="https://websites-user-assets.cdn.spoton.com/static/favicons/KJvVd4kQGqJHRu8e0qwk_Pinch-of-Spice_final.jpg" alt="Logo">
+    <h1>Pinch Of Spice</h1>
+    <p>Experience the best dining experience</p>
+  </div>
+</header>
+
+<!-- Welcome Banner -->
+<section id="welcome" class="welcome-banner">
+  <h1>Welcome to Pinch Of Spice</h1>
+  <p>Where flavor meets tradition</p>
+</section>
+
+<!-- Menu Section -->
+<!-- Menu Section -->
+<section id="menu" class="menu-section">
+    <h2>Our Menu</h2>
+  
+    <!-- Starters -->
+    <div class="menu-category">
+      <h3>Starters</h3>
+  
+      <div class="menu-item">
+        <img src="sources/image.png" alt="Spring Rolls">
+        <div class="menu-item-content">
+          <h4>Vegetable Spring Rolls <span class="price">₹320</span></h4>
+          <p>Crispy rolls filled with vegetables, served with tangy sweet chili sauce.</p>
+        </div>
+      </div>
+  
+      <div class="menu-item">
+        <img src="sources/image copy.png" alt="Chicken Wings">
+        <div class="menu-item-content">
+          <h4>Chicken Wings <span class="price">₹440</span></h4>
+          <p>Juicy wings coated in a spicy BBQ sauce, served with ranch dip.</p>
+        </div>
+      </div>
+  
+      <div class="menu-item">
+        <img src="sources/image copy 2.png" alt="Paneer Tikka">
+        <div class="menu-item-content">
+          <h4>Paneer Tikka <span class="price">₹400</span></h4>
+          <p>Grilled paneer cubes marinated in yogurt and spices.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Main Course -->
+    <div class="menu-category">
+      <h3>Main Course</h3>
+  
+      <div class="menu-item">
+        <img src="image copy 6.png" alt="Butter Chicken">
+        <div class="menu-item-content">
+          <h4>Butter Chicken <span class="price">₹490</span></h4>
+          <p>Chicken in a creamy tomato-based gravy served with naan or rice.</p>
+        </div>
+      </div>
+  
+      <div class="menu-item">
+        <img src="sources/image copy 7.png" alt="Vegetable Biryani">
+        <div class="menu-item-content">
+          <h4>Vegetable Biryani <span class="price">₹360</span></h4>
+          <p>Fragrant basmati rice cooked with vegetables and spices, served with raita.</p>
+        </div>
+      </div>
+  
+      <div class="menu-item">
+        <img src="sources/image copy 8.png" alt="Dal Tadka">
+        <div class="menu-item-content">
+          <h4>Dal Tadka <span class="price">₹410</span></h4>
+          <p>Yellow lentils tempered with garlic and cumin, served with steamed rice.</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Desserts -->
+    <div class="menu-category">
+      <h3>Desserts</h3>
+  
+      <div class="menu-item">
+        <img src="sources/image copy 3.png" alt="Chocolate Lava Cake">
+        <div class="menu-item-content">
+          <h4>Chocolate Lava Cake <span class="price">₹390</span></h4>
+          <p>Warm chocolate cake with molten center, served with vanilla ice cream.</p>
+        </div>
+      </div>
+  
+      <div class="menu-item">
+        <img src="sources/image copy 4.png" alt="Cheesecake">
+        <div class="menu-item-content">
+          <h4>Classic Cheesecake <span class="price">₹540</span></h4>
+          <p>Rich and creamy cheesecake with a buttery graham cracker crust.</p>
+        </div>
+      </div>
+  
+      <div class="menu-item">
+        <img src="sources/image copy 5.png" alt="Ice Cream Sundae">
+        <div class="menu-item-content">
+          <h4>Ice Cream Sundae <span class="price">₹420</span></h4>
+          <p>Vanilla, chocolate, and strawberry scoops topped with whipped cream and syrup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <h2>About Us</h2>
+  <p>Our journey began in 1995, when our founder, a passionate chef with a dream, decided to bring the flavors of the world to our community...</p>
+</section>
+
+<!-- Location Section -->
+<section id="location" class="location-section">
+  <h2>Our Location</h2>
+  <p>301, Main Market, Plam Beach Road Galleria Mall, Dadar, Mumbai, Maharashtra 400703</p>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.4194154846814!3d37.77492977975971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064f0b1b1b1%3A0x2b1b1b1b1b1b1b1b!2sYour%20Restaurant!5e0!3m2!1sen!2sus!4v1610000000000!5m2!1sen!2sus" 
+    allowfullscreen 
+    loading="lazy">
+  </iframe>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Pinch Of Spice. All Rights Reserved.</p>
+  <p>sources/
+    Follow us on: 
+    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+  </p>
+</footer>
+
+</body>
+</html>
